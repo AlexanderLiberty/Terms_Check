@@ -11,11 +11,9 @@ import os
 4.判断符合项和结果记录条件语句是否一致 ok
 5.输出有问题的内容 ok
 '''
-print("/************************************************\n密评/等保，结果记录标准型检测。\nBy：AlexanderLiberty\nDate：2023-01-10\n************************************************/\n\n\n")
-path = input("输入“待查项路径,支持xlsx文件”开始检查:)，：")
+print("/************************************************\n密评/等保，结果记录标准型检测。（本地词库版）\nBy：骑猪奔跑十万里\nLink：https://github.com/AlexanderLiberty\nDate：2023-01-10\n* 公开版：V1.0\n* 支持文件拖拽\n************************************************/\n\n\n")
 
-bad = ["不满足","未定期","未限制","无法","未采用","未对","未禁止","未设置","不合理","未实现","未关闭","未重命名","不适用"]
-#bad[0]
+bad = ["不满足","未定期","未限制","无法","未采用","未对","未禁止","未设置","不合理","未实现","未关闭","未重命名","不适用","任意"]
 okey=["配置合理","已开启","需输入","不存在","可保证","可检测","可实现","可通过","可防止","可避免","满足","可随","可以","可对","不适用"]
 
 #sheets，sheet列表；sheet，单个sheet；
@@ -31,6 +29,7 @@ def ookey(pand_str,jieguo_str,j):
 			print("符合情况：" + pand_str + "\n" + jieguo_str)
 			#print(jieguo_str)
 			print("\n\n\n")
+			input("输入“没问题”检查下一个结果记录（直接回车）：")
 
 #不符合中不合理项
 def bbad(pand_str,jieguo_str,j):
@@ -41,6 +40,7 @@ def bbad(pand_str,jieguo_str,j):
 			print("“" + j + "”"+"结果记录存在问题！")
 			print("符合情况：" + pand_str + "\n" + jieguo_str)
 			print("\n\n\n")
+			input("输入“没问题”检查下一个结果记录（直接回车）：")
 
 #bad sheet
 def sheet_bad(pand,jieguo,j):
@@ -55,6 +55,8 @@ def sheet_bad(pand,jieguo,j):
 			print("结果记录主语：\n" + jieguo_str_tmp + "\n\n")
 		count_name = count_name + 1
 	print("\n\n\n")
+	print("**********************************************************************************\n主语与结果记录检测完成\n**********************************************************************************\n")
+	input("输入“没问题”检查下一个结果记录（直接回车）：")
 
 #select sheet name for excel
 def select(sheet,path,j):
@@ -85,8 +87,7 @@ def start():
 		sheet = j
 		select(sheet,path,j)
 		print("\n\n\n")
-		#contin = input("输入“没问题”开始下一个系统：")
-	#sleep(100)
+		contin = input("输入“没问题”开始下一个系统（系统切换控制）：")
 
 if __name__ == "__main__":
 	start()
